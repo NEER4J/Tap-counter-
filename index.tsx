@@ -246,7 +246,13 @@ const SettingsView = ({ history, setHistory }: { history: Record<string, number>
 const App = () => {
   const [history, setHistory] = useState<Record<string, number>>({});
   const [today, setToday] = useState(getTodayString());
-  const [view, setView] = useState<'home' | 'stats' | 'settings'>('home');
+  
+  // Initialize view from URL query param (handling App Shortcuts)
+  const [view, setView] = useState<'home' | 'stats' | 'settings'>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const v = params.get('view');
+    return (v === 'stats' || v === 'settings') ? v : 'home';
+  });
 
   useEffect(() => {
     const saved = localStorage.getItem('tap-history');

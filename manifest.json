@@ -17,5 +17,19 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Log Tap",
+      "short_name": "Count",
+      "url": "/?view=home",
+      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3176/3176395.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "View Stats",
+      "short_name": "Stats",
+      "url": "/?view=stats",
+      "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3176/3176395.png", "sizes": "192x192", "type": "image/png" }]
+    }
   ]
 }

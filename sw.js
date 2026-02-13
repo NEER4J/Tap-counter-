@@ -14,6 +14,18 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // If it's a navigation request (like opening a shortcut), return index.html
+  // regardless of query parameters.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      caches.match('/index.html').then((response) => {
+        return response || fetch(event.request);
+      })
+    );
+    return;
+  }
+
+  // Standard cache-first strategy for assets
   event.respondWith(
     caches.match(event.request)
       .then((response) => response || fetch(event.request))
