@@ -1,0 +1,5 @@
+{
+  "description": "A daily tap counter with persistence, calendar visualization, and weekly stats.",
+  "requestFramePermissions": [],
+  "name": "App"
+}
